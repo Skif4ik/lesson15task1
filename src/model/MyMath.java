@@ -23,4 +23,35 @@ public class MyMath {
         return avg /= arr.length;
     }
 
+    public static class Factorial {
+        private int value = 1;
+
+        public int getValue() {
+            return value;
+        }
+
+        public void setValue(int value) throws NegativeFactorialValueException {
+            if(value<0) throw new NegativeFactorialValueException(value);
+            this.value = value;
+        }
+
+        public long getFactorial(){
+            long res = 1;
+            for(int i =2; i<=value; i++){
+                res = res * i;
+            }
+            return res;
+        }
+
+        @Override
+        public String toString() {
+            final StringBuilder sb = new StringBuilder("model.MyMath.Factorial{");
+            sb.append("value=").append(value);
+            sb.append(", factorial=").append(getFactorial());
+            sb.append('}');
+            return sb.toString();
+        }
+    }
+
+
 }

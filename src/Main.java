@@ -1,5 +1,6 @@
 import model.DivideByZeroException;
 import model.MyMath;
+import model.NegativeFactorialValueException;
 import model.NullDoubleArrayException;
 
 public class Main {
@@ -55,6 +56,24 @@ public class Main {
         } catch (NullDoubleArrayException e) {
             System.out.println(e);
         } catch (DivideByZeroException e) {
+            System.out.println(e);
+        }
+
+        System.out.println("==========================================");
+
+        MyMath.Factorial factorial1 = new MyMath.Factorial();
+        System.out.println(factorial1);
+        try {
+            factorial1.setValue(5);
+            System.out.println(factorial1);
+        } catch (NegativeFactorialValueException e) {
+            System.out.println(e);
+        }
+
+        try {
+            factorial1.setValue(-5);
+            System.out.println(factorial1);
+        } catch (NegativeFactorialValueException e) {
             System.out.println(e);
         }
     }
