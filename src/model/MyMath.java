@@ -23,8 +23,21 @@ public class MyMath {
         return avg /= arr.length;
     }
 
-    public static class Factorial {
-        private int value = 1;
+    public static class Factorial {     //вложенный класс Factorial
+        private int value ;
+
+        public Factorial() {
+            value = 1;
+        }
+
+        public Factorial(int value) throws CreateFactorialException {
+            try {
+                if(value<0) throw new NegativeFactorialValueException(value);
+                this.value = value;
+            } catch (NegativeFactorialValueException e) {
+                throw new CreateFactorialException(e);
+            }
+        }
 
         public int getValue() {
             return value;
